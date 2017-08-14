@@ -4,7 +4,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-    <title>Customer View</title>
+    <title>Title</title>
 </head>
 <body>
 <table border="1">
@@ -12,7 +12,9 @@
         <th>CustomerID</th>
         <th>CompanyName</th>
     </tr>
-
+<c:forEach items="${cList}" var="item">
+    
+</c:forEach>
 </table>
 </body>
 </html>
