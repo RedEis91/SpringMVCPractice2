@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 @Controller
 public class HomeController {
@@ -45,14 +46,22 @@ public class HomeController {
 
 
             //create the db statement
-            String readCustomersCommand = "select customerid, companyname from customers";
+            String readCustomersCommand = "select customerid,companyname from customers";
 
             Statement readCustomers = mysqlConnection.createStatement(); // creates the statement
 
             ResultSet results = readCustomers.executeQuery(readCustomersCommand);
             //executes the statement / query to get the data from the database, stores in ResultSet called results
 
-            //arraylist of customers
+            //array list of customers
+            ArrayList<Customer> customerList = new ArrayList<Customer>();
+
+            //map from the ResultSet to the ArrayList, one row at a time, using results.next()
+            while(results.next()) {
+                                                    //depends on type of data you are trying to fetch
+                Customer temp = new Customer(results.getString(1),
+                        results.getString(2));
+            }
 
 
 
