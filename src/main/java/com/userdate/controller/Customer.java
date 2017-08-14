@@ -5,9 +5,9 @@ public class Customer {
     private String customerID;
     private String companyName;
 
-    public Customer(String customerID, String companyName) {
-        this.customerID = customerID;
-        this.companyName = companyName;
+    public Customer(String cid, String cname) {
+        this.customerID = cid;
+        this.companyName = cname;
     }
 
     public String getCustomerID() {
@@ -27,5 +27,7 @@ public class Customer {
     }
 
     public Customer() {
+        customerID = "";
+        companyName = "";
     }
 }
