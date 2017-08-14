@@ -44,7 +44,7 @@ public class HomeController {
             mysqlConnection = DriverManager.getConnection(dbAddress, username, password);
 
             //create the db statement
-            String readCustomersCommand = "select customerid,companyname, city from customers";
+            String readCustomersCommand = "select customerid,companyname,city from customers";
 
             Statement readCustomers = mysqlConnection.createStatement(); // creates the statement
 
@@ -60,7 +60,7 @@ public class HomeController {
                 //loops to make sure there is a next row in results
                                                     //depends on type of data you are trying to fetch
                 Customer temp = new Customer(results.getString(1),
-                        results.getString(2));
+                        results.getString(2), results.getString(3));
                 //adds temporary customer object to customerList
                 customerList.add(temp);
             }
