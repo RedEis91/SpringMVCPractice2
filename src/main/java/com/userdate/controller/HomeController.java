@@ -44,7 +44,7 @@ public class HomeController {
             mysqlConnection = DriverManager.getConnection(dbAddress, username, password);
 
             //create the db statement
-            String readCustomersCommand = "select customerid,companyname from customers";
+            String readCustomersCommand = "select customerid,companyname, city from customers";
 
             Statement readCustomers = mysqlConnection.createStatement(); // creates the statement
 

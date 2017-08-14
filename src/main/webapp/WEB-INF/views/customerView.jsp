@@ -16,13 +16,18 @@
 <c:forEach items="${cList}" var="item">
 <tr>
     <td>
-        
+
         ${item.companyName}
     </td>
     <td>
 
         ${item.customerID}
     </td>
+    <td>
+
+            ${item.city}
+    </td>
+
 </tr>
 </c:forEach>
 </table>

@@ -4,10 +4,20 @@ package com.userdate.controller;
 public class Customer {
     private String customerID;
     private String companyName;
+    private String city;
 
-    public Customer(String cid, String cname) {
+    public Customer(String cid, String cname, String cty) {
         this.customerID = cid;
         this.companyName = cname;
+        this.city = cty;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getCustomerID() {
@@ -29,6 +39,7 @@ public class Customer {
     public Customer() {
         customerID = "";
         companyName = "";
+        city = "";
     }
 
 
