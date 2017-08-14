@@ -30,4 +30,6 @@ public class Customer {
         customerID = "";
         companyName = "";
     }
+
+
 }

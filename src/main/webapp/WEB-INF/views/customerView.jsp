@@ -12,8 +12,18 @@
         <th>CustomerID</th>
         <th>CompanyName</th>
     </tr>
+    //for each item on my cList
 <c:forEach items="${cList}" var="item">
-    
+<tr>
+    <td>
+        
+        ${item.companyName}
+    </td>
+    <td>
+
+        ${item.customerID}
+    </td>
+</tr>
 </c:forEach>
 </table>
 </body>
