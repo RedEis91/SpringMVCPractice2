@@ -39,11 +39,9 @@ public class HomeController {
             //static load: (commented out for now)
             //DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 
-
             //create the db connection object
             Connection mysqlConnection;
             mysqlConnection = DriverManager.getConnection(dbAddress, username, password);
-
 
             //create the db statement
             String readCustomersCommand = "select customerid,companyname from customers";
@@ -57,18 +55,26 @@ public class HomeController {
             ArrayList<Customer> customerList = new ArrayList<Customer>();
 
             //map from the ResultSet to the ArrayList, one row at a time, using results.next()
+
             while(results.next()) {
+                //loops to make sure there is a next row in results
                                                     //depends on type of data you are trying to fetch
                 Customer temp = new Customer(results.getString(1),
                         results.getString(2));
+                //adds temporary customer object to customerList
+                customerList.add(temp);
             }
 
+            return new ModelAndView("customerView", "cList", customerList);
 
 
-        } catch (Exception e) {
+        } catch (Exception e)
+
+        {
             e.printStackTrace();
         }
-
+        // todo: create an error page with custom error messages !!!!
+        return null;
     }
 
 
