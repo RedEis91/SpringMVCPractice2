@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.sql.DriverManager;
+import java.sql.*;
 
 @Controller
 public class HomeController {
@@ -37,7 +37,25 @@ public class HomeController {
 
             //static load: (commented out for now)
             //DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-            
+
+
+            //create the db connection object
+            Connection mysqlConnection;
+            mysqlConnection = DriverManager.getConnection(dbAddress, username, password);
+
+
+            //create the db statement
+            String readCustomersCommand = "select customerid, companyname from customers";
+
+            Statement readCustomers = mysqlConnection.createStatement(); // creates the statement
+
+            ResultSet results = readCustomers.executeQuery(readCustomersCommand);
+            //executes the statement / query to get the data from the database, stores in ResultSet called results
+
+            //arraylist of customers
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
